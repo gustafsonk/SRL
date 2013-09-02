@@ -44,17 +44,53 @@ function getGoal(goal) {
     for (var i in goalArray) {
         if (new RegExp("(https?://)?(([A-Za-z0-9#]+[.])+[A-Za-z]{2,3}([/][A-Za-z0-9#]+)*([.][A-Za-z]{2,4})?)").test(goalArray[i])) {
             //if(new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(goalArray[i])) {
+
+            // Marks the beginning and end of the URL portion of the token, assume the whole token is a URL by default.
+            var urlStart = 0;
+            var urlLength = goalArray[i].length;
+            
+            // Handle a single pair of ()'s or []'s around a URL.
+            if (goalArray[i].indexOf('(') == 0 || goalArray[i].indexOf('[') == 0) {
+                // Mark the first character for removal.
+                urlStart = 1;
+                urlLength--;
+            }
+            var leftCount;
+            var rightCount;
+            if (goalArray[i].lastIndexOf(')') == goalArray[i].length - 1) {
+                // Prevent breaking a valid URL ending with a ) and having an equal # of ( and ).
+                leftCount = (goalArray[i].substr(urlStart).match(/\)/g) || []).length;
+                rightCount = (goalArray[i].substr(urlStart).match(/\(/g) || []).length;
+                if (leftCount != rightCount) {
+                    // Mark the last character for removal.
+                    urlLength--;
+                }
+            } else if (goalArray[i].lastIndexOf(']') == goalArray[i].length - 1) {
+                // Prevent breaking a valid URL ending with a ] and having an equal # of [ and ].
+                leftCount = (goalArray[i].substr(urlStart).match(/\]/g) || []).length;
+                rightCount = (goalArray[i].substr(urlStart).match(/\[/g) || []).length;
+                if (leftCount != rightCount) {
+                    // Mark the last character for removal.
+                    urlLength--;
+                }
+            }
+
             // Append a URL protocol if it's missing.
             var prefix = '';
-            if ((goalArray[i].substring(0, 7) != 'http://') && (goalArray[i].substring(0, 8) != 'https://')) {
+            if ((goalArray[i].substring(urlStart, urlStart + 7) != 'http://') && (goalArray[i].substring(urlStart, urlStart + 8) != 'https://')) {
                 prefix = 'http://';
             }
 
+            // Truncate the link's label if it's too long.
+            var linkLabel;
             if (goalArray[i].length > 40) {
-                goalArray[i] = '<a onmousedown="javascript:linkClick();" href="' + prefix + goalArray[i] + '">' + goalArray[i].substr(0, 40) + '...</a>';
+                linkLabel = goalArray[i].substr(0, 40) + '...';
             } else {
-                goalArray[i] = '<a onmousedown="javascript:linkClick();" href="' + prefix + goalArray[i] + '">' + goalArray[i] + '</a>';
+                linkLabel = goalArray[i];
             }
+            
+            // Make a valid hyperlink.
+            goalArray[i] = '<a onmousedown="javascript:linkClick();" href="' + prefix + goalArray[i].substr(urlStart, urlLength) + '">' + linkLabel + '</a>';
         } else {
             if (goalArray[i].length > 40) {
                 goalArray[i] = '<span title="' + goalArray[i] + '">' + goalArray[i].substr(0, 40) + '...</span>';
