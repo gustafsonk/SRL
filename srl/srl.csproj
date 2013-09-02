@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E86C7DE7-6187-48D9-BE02-69C832EF3EAF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>srl</RootNamespace>
+    <AssemblyName>srl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="client-side file changes.txt" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="pages\404.html" />
+    <Content Include="pages\about.html" />
+    <Content Include="pages\channel.html" />
+    <Content Include="pages\faq\commandlist.html" />
+    <Content Include="pages\faq\commandlist\fr.html" />
+    <Content Include="pages\faq\commandlist\jp.html" />
+    <Content Include="pages\faq\glossary.html" />
+    <Content Include="pages\template.html" />
+    <Content Include="pages\profiles.html" />
+    <Content Include="pages\races\game.html" />
+    <Content Include="pages\promotion.html" />
+    <Content Include="pages\race.html" />
+    <Content Include="pages\races\result.html" />
+    <Content Include="pages\races\seasons.html" />
+    <Content Include="pages\tools.html" />
+    <Content Include="pages\tools\bingo-popout.html" />
+    <Content Include="pages\tools\crystal-bingo.html" />
+    <Content Include="pages\tools\mm-bingo.html" />
+    <Content Include="pages\tools\oot-bingo.html" />
+    <Content Include="pages\tools\oot-restriction.html" />
+    <Content Include="pages\tools\redblue-bingo.html" />
+    <Content Include="pages\tools\sm64-bingo.html" />
+    <Content Include="pages\tools\smw-bingo.html" />
+    <Content Include="pages\tools\sotn-bingo.html" />
+    <Content Include="pages\tools\sotn-equipment.html" />
+    <Content Include="pages\tools\supermetroid-bingo.html" />
+    <Content Include="profiles\profile.js" />
+    <Content Include="races\gamelist.js" />
+    <Content Include="races\game\game.js" />
+    <Content Include="races\leaderboardpage.js" />
+    <Content Include="races\liveraces.js" />
+    <Content Include="pages\index.html" />
+    <Content Include="pages\races.html" />
+    <Content Include="races\racehistory.js" />
+    <Content Include="races\races.js" />
+    <Content Include="races\result\raceresult.js" />
+    <Content Include="races\seasons.js" />
+    <Content Include="races\seasons\game.js" />
+    <Content Include="race\racedata.js" />
+    <Content Include="scripts\backtotop.js" />
+    <Content Include="pages\faq.html" />
+    <Content Include="scripts\bingo\bingo-v5.js" />
+    <Content Include="scripts\bingo\crystal-bingo.js" />
+    <Content Include="scripts\bingo\mm-bingo.js" />
+    <Content Include="scripts\bingo\redblue-bingo.js" />
+    <Content Include="scripts\bingo\sm64-bingo.js" />
+    <Content Include="scripts\bingo\smw-bingo.js" />
+    <Content Include="scripts\bingo\sotn-bingo.js" />
+    <Content Include="scripts\bingo\supermetroid-bingo.js" />
+    <Content Include="scripts\globals.js" />
+    <Content Include="scripts\jquery.countdown.min.js" />
+    <Content Include="scripts\jquery.scrollTo-1.4.3.1-min.js" />
+    <Content Include="scripts\less.js" />
+    <Content Include="login.js" />
+    <Content Include="scripts\racebuttons.js" />
+    <Content Include="scripts\racetable.js" />
+    <Content Include="scripts\seedrandom-min.js" />
+    <Content Include="scripts\updateRacesButton.js" />
+    <Content Include="streams.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="style\styles.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tools\oot-bingo\goallist_v7.1.js" />
+    <Content Include="tools\oot-restriction\oot-restriction.js" />
+    <Content Include="tools\sotn-equipment\sotn-inventory.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tools\oot-bingo\generator_v7.1.js" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>36969</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:28727/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

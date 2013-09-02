@@ -1,0 +1,8 @@
+1. races.js: change the 3 instances of window.location to use window.location.hash instead
+2. commandlist.html: replace the 2 flag links to begin with /faq/commandlist/
+3. race.html: handle 1 instance of server-side placing of an id
+4. tools.html: handle-server-side placing of new bingo seeds for each bingo card
+5. oot and mm bingo cards: handle server-side placing of current bingo seed for language switcher
+6. each bingo card: handle server-side placing of new bingo seeds (ignoring commented out seeds)
+7. each bingo card except oot: remove timestamps for js files (not a needed change, just a nuisance)
+8. all the .js files except for the minifieds are automatically reformatted by vs/resharper to read better

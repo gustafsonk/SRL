@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<cross-domain-policy>
+    <allow-access-from domain="*.justin.tv" to-ports="80,443,1935,6667" />
+    <allow-access-from domain="*.jtvnw.net" to-ports="80,443,1935,6667" />
+    <allow-access-from domain="*.twitch.tv" to-ports="80,443,1935,6667" />
+</cross-domain-policy>
